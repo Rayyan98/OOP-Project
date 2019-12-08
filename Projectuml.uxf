@@ -1,0 +1,1515 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>405</y>
+      <w>207</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Button
+--
+public:
++defaultHeight: int
++selectedHeight: int 
++currentHeight: int
++position: Point
++inVariant floatAnchor
++Button()
++Button(int, int, Point, floatAnchor)
++Render(SDL_Renderer*, bool, Point) = 0: virtual void
++~Button() = 0: virtual void
+bg=dark_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>315</x>
+      <y>27</y>
+      <w>90</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Point
+--
++x: int
++y: int
++operator!=(Point pointer): bool
++operator-(Point pointer): Point
+
+--
++Point();
++Point(int,int);
++~Point()
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>9</y>
+      <w>261</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>ACharacter
+--
++origWidth: int
++origHeight: int
++lastWidth: int
++lastHeight: int
++chr: string
++color: string
++path: char*
++dstRect: SDL_Rect
++temp: SDL_Surface* 
++img: SDL_Texture*
++ACharacter()
++ACharacter(SDL_Renderer*, string, string, Point anchor = Point(0,0))
++~ACharacter()
++Render(SDL_Renderer*, Point&amp;, int): void
++GetProjectedWidth(int): int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>198</y>
+      <w>234</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Word
+--
+-word: char* 
+-length: int 
+-characters: Character* 
+-width: int 
+-height: int 
+--
++Word()
++~Word()
++Word(string)
++Render(SDL_Renderer*, Point&amp;): void 
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>297</x>
+      <y>198</y>
+      <w>207</w>
+      <h>162</h>
+    </coordinates>
+    <panel_attributes>Stack
+--
+-head: Node*
+-tail: Node*
+--
++Stack()
++~Stack()
++Push(): void
++Pop(): DT
++DrawAll(SDL_Renderere*): void
++BringToFront(): void
++SendToBack(): void
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>261</x>
+      <y>423</y>
+      <w>108</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>Node
+template &lt;class T&gt;
+--
++data: T*
++ next: node&lt;T&gt;*
+--
++~node();
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>27</y>
+      <w>243</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Sprite
+--
++image: SDL_Texture*
++anchor: Point
+--
++Sprite()
++~Sprite()
++Sprite(SDL_Texture*, Point&amp;): void
++Render(SDL_Renderer*, Point&amp;): void
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>198</y>
+      <w>189</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>Character
+--
+#mana: int
+#health: int
+#position: Point    
+#super: int
+#countToTurn: int
+#window: int
+#movement: int
+#negativeFrames: int
+#blockType: int
+#ifAcceptingInput: bool
+#position: Point
+#yVelocity: float
+#state: int 
+#alive: bool
+#orientation: bool
+#currentAnimation: int
+#currentAnimationInd: int
+#currentAnimationCap: int
+#spread: int
+#movedOnJump: bool
+#allAnimations: Sprite***
+#nextSprite: Sprite*
+#IncreaseSuper(int): void
+#DecreaseHealth(int):void
+
+--
++Character()
++~Character(Point,bool)
++GetNextSprite(): Sprite*
++virtual ~Character()
++virtual RecieveInput(Uint32, int) = 0 : void
++virtual Projectile* UpdateSprite() = 0: void
++virtual Render(SDL_Renderer*) = 0: void
++virtual HandleHit(int, int, int) = 0: bool
+bg=magenta</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>0</y>
+      <w>189</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>UzairBaloch
+--
++SDL_Rect* hitBox
+--
++UzairBaloch()
++~UzairBaloch()
++ EnterAnimation(): void
++ DieAnimation(): void
++ HighPunch(): void
++ HighKick(): void
++ LowPunch(): void
++ LowKick(): void
++ EnergyBall(): void
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>891</x>
+      <y>90</y>
+      <w>189</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>ArshadPappu
+--
++SDL_Rect* hitBox
+--
++ArshadPappu()
++~ArshadPappu()
++ EnterAnimation(): void
++ DieAnimation(): void
++ HighPunch(): void
++ HighKick(): void
++ LowPunch(): void
++ LowKick(): void
++ EnergyBall(): void
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>378</x>
+      <y>495</y>
+      <w>189</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>ChamanChota
+--
++SDL_Rect* hitBox
+--
++ChamanChota()
++~ChamanChota()
++ EnterAnimation(): void
++ DieAnimation(): void
++ HighPunch(): void
++ HighKick(): void
++ LowPunch(): void
++ LowKick(): void
++ EnergyBall(): void
+bg=dark_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>765</x>
+      <y>297</y>
+      <w>189</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>RobertRoto
+--
++SDL_Rect* hitBox
+--
++RobertRoto()
++~RobertRoto()
++ EnterAnimation(): void
++ DieAnimation(): void
++ HighPunch(): void
++ HighKick(): void
++ LowPunch(): void
++ LowKick(): void
++ EnergyBall(): void
+bg=red</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>504</y>
+      <w>189</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>DaudIbrahim
+--
++SDL_Rect* hitBox
+--
++DaudIbrahim()
++~DaudIbrahim()
++ EnterAnimation(): void
++ DieAnimation(): void
++ HighPunch(): void
++ HighKick(): void
++ LowPunch(): void
++ LowKick(): void
++ EnergyBall(): void
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>603</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>Move
+--
++NumberFrames: int
++Damage: int
++SDL_Rect* strikeBox
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>225</x>
+      <y>576</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>HighMove
+--
++sprites: Sprite*
+
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>225</x>
+      <y>666</y>
+      <w>144</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>LowMove
+--
++sprites: Sprite*
+
+bg=magenta</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>171</x>
+      <y>603</y>
+      <w>72</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>477</x>
+      <y>432</y>
+      <w>81</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>126</x>
+      <y>360</y>
+      <w>27</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>594</x>
+      <y>441</y>
+      <w>72</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0;60.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>261</y>
+      <w>126</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0;120.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>225</y>
+      <w>189</w>
+      <h>27</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>171</y>
+      <w>135</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;130.0;40.0;130.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>99</x>
+      <y>666</y>
+      <w>144</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;140.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>144</x>
+      <y>153</y>
+      <w>27</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>306</x>
+      <y>351</y>
+      <w>45</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>30.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1098</x>
+      <y>0</y>
+      <w>234</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Bar
+--
+# pos: Point
+# overAll: SDL_Rect 
+# FilledPart: SDL_Rect 
+# Boundary: SDL_Rect 
+# boundaryWidth: int
+# total: int
+# current: int
+# status: int
+--
++ virtual Render(SDL_Renderer*): void
++ virtual Deplete(int): void
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1098</x>
+      <y>225</y>
+      <w>126</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>HealthBar
+--
++Deplete(int): void
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1134</x>
+      <y>171</y>
+      <w>27</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1206</x>
+      <y>279</y>
+      <w>126</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>ManaBar
+--
++Deplete(int): void
++Increase(int): void
+bg=cyan</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1269</x>
+      <y>171</y>
+      <w>27</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>297</y>
+      <w>198</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>MainMenue
+--
+
+-buttons: TextButton**
+-title: TextButton*
+-currentButton: int
+-buttonsCount: int
++GetNextScreen(): Screen*
+-bgMusic: Mix_Music*
+--
+-ProcedureOnQuit(): void
+-ProcedureOnCampaign(): void
+-ProcedureOnContinue(): void
+-ProcedureOnPvsP(): void
+-ProcedureOnSettings(): void
++MainMenu();
++~MainMenu();
++RecieveInput(Uint32, SDL_Keycode&amp;): void
++Render(SDL_Renderer*): void
++PlayMusic(): void
+bg=dark_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1179</x>
+      <y>387</y>
+      <w>198</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Screen
+--
+
+#backGround: SDL_Texture*
+#backGroundRect: SDL_Rect
+#ifNextScreen: bool
+#nextScreen: Screen*
+#overlyingScreen: Screen*
++quit: bool
+
+--
+#Screen()
++IfMoveToNextScreen(): bool
++virtual  Render(SDL_Renderer*): void
++virtual RecieveInput(Uint32, SDL_Keycode&amp;):void
++virtual GetNextScreen(): Screen*
++virtual ~Screen()
++virtual PlayMusic(): void
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>459</y>
+      <w>198</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>LoadScreen
+--
++LoadScreen()
++~LoadScreen()
++Render(SDL_Renderer*): void
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1242</x>
+      <y>459</y>
+      <w>198</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>CharSelectScreen
+--
+-selectionArea: SDL_Rect
+-charPortraits :SDL_Texture
+-leftPortrait: int
+-rightPortrait: int
+--
++CharSelectScreen()
++~CharSelectScreen()
++Render(SDL_Renderer*): void
+bg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1161</x>
+      <y>351</y>
+      <w>135</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;40.0;130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1161</x>
+      <y>441</y>
+      <w>45</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30.0;10.0;30.0;70.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1197</x>
+      <y>441</y>
+      <w>63</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;50.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>657</x>
+      <y>684</y>
+      <w>234</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>Overlay
+--
+#boundary: SDL_Rect
+#pos: Point
+#image: SDL_Texture
+--
++ virtual Render(SDL_Renderer*): void
+bg=light_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>900</x>
+      <y>549</y>
+      <w>189</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>PauseScreen
+--
+-Screen* prevScreen: Screen*
+-Character* char1: Character*
+-char2: Character*
+-player2: bool
++GetNextScreen(): Screen*
+-buttons: TextButton**
+-title: TextButton*
+-currentButton: int
+-buttonsCount: int
+-- 
++PauseScreen(Screen*,Character*,Character*,bool)
++~PauseScreen()
++Render(SDL_Renderer*): void
++RecieveInput(Uint32,SDL_Keycode&amp;): void
+-ProcedureOnQuit(): void
+-ProcedureOnCharSelect(): void
+-ProcedureOnMainMenu(): void
+-ProcedureOnSettings(): void
+-PlayMusic(): void
+
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>396</x>
+      <y>720</y>
+      <w>207</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>RoundMessages
+--
+-message: Word
+--
++void Render(SDL_Renderer*)
+bg=blue</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>972</x>
+      <y>720</y>
+      <w>207</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Dialogue
+--
+-dailogue: Word
+--
++void Render(SDL_Renderer*)
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>846</x>
+      <y>594</y>
+      <w>72</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>20.0;100.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>882</x>
+      <y>729</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>882</x>
+      <y>621</y>
+      <w>216</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>594</x>
+      <y>774</y>
+      <w>81</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>70.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>9</x>
+      <y>711</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Arena
+
+--
++playerTwo: bool
++char1: Character*
++char2: Character*
++projectiles: linkedList&lt;Projectile&gt;
++baseLine: static int 
++gravity: static float
++Arena()
++Arena(SDL_Texture*, bool)
++~Arena()
++Render(SDL_Renderer*): void 
++GetNextScreen():Screen* 
++RecieveInput(Uint32, SDL_Keycode&amp;): void 
++ProcedureOnQuitToCharSelect(): void
++ProcedureOnQuitToMain(): void
++ProcedureOnQuitToPause(): void
++PlayMusic():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1233</x>
+      <y>747</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>BackGroundSelect
+--
++selectInd: int
++numOfBackgrounds: int
++player2: bool
++BackGroundSelect(bool)
++~BackGroundSelect()
++Render(SDL_Renderer*): void
++RecieveInput(Uint32, SDL_Keycode&amp;): void
++GetNextScreen(): Screen*
++ProcedureOnQuit(): void
++ProcedureOnSelect(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>207</x>
+      <y>747</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>CharacterSelect
+--
++playerTwo: bool
++selectInd: int
++selectIndP2: int
++numOfPortraits: int
++choosenP1: bool
++choosenP2: bool
++portraits: PortraitButton**
++smallFigures: Figure** 
++bigFigures: Figure** 
++names: TextButton**
++charIcons: PortraitButton**
++NameBackGround: Figure*
++figurePivotLeft: Point
++figurePivotRight: Point
++ProcedureOnQuit(): void
++ProcedureOnSelect(): void
++CharacterSelect(bool playerTwo = 0)
++~CharacterSelect()
++Render(SDL_Renderer*): void
++GetNextScreen(): Screen*
++RecieveInput(Uint32, SDL_Keycode&amp;): Screen*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>666</x>
+      <y>846</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>CollisionDetection
+--
+
++static lastCall: int
++static Check(SDL_Rect*, SDL_Rect*, Point point1 = Point(0,0), Point point2 = Point(0,0)): bool 
++static Check(SDL_Rect**, SDL_Rect*, Point&amp;, Point&amp;): bool
++static Check(SDL_Rect**, SDL_Rect**, Point&amp;, Point&amp;): bool
++static Check(Sprite*, Sprite*): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>936</x>
+      <y>855</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Color
+--
+
++red: int
++blue: int
++green: int
++Color()
++Color(int, int, int)
++~Color()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>855</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Figure
+--
++spriteSheet: SDL_Texture*
++srcRect: SDL_Rect
++nextSprite: Point
++totalSprites: int
++currentSprite: int
++defaultOrientation: bool
++loop: bool
++fAnchor:floatAnchor
++height: int
++Figure()
++~Figure();
++Figure(SDL_Texture*, Point, Point, Point, int, bool, bool, floatAnchor)
++Render(SDL_Renderer*, Point, int, bool, bool): void
++ProjectedWidth(int): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1215</x>
+      <y>927</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Fire
+--
++Fire()
++~Fire()
++Fire(Point, bool)
++UpdateSprite(): void
++HandleHit(): void
++Render(SDL_Renderer*): void
++Creation(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>666</x>
+      <y>1026</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>floatAnchor
+--
+public:
++x: float
++y: float
++floatAnchor()
++~floatAnchor()
++floatAnchor(float, float)
++superImpose(int, int): Point</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>936</x>
+      <y>1035</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>GaneshGaitonde
+--
++cCombo: int
++crouchKick1Status: int
++GaneshGaitonde()
++GaneshGaitonde(Point, bool)
++~GaneshGaitonde()
++UpdateSprite(): Projectile*
++RecieveInput(Uint32, int): void
++Render(SDL_Renderer*): void
++GetHitCrouch(int): void
++GetHitStandingLow(int): void
++GetHitStandingHigh(int): void
++HandleHit(int,int, int): bool
+
++Stance(): void
++Crouch(): void
++Crouching(): void
++Guarding(): void
++CrouchGuarding(): void
++WalkForward(): void
++WalkBackward(bool justIn = false): void
++Jump(): void
++CrouckKick():void
++CrouchLightJab():void
++ShortKick():void
++StrongJab(): void
++CrouchTurn(): void
++Turn(): void
++JumpFromStand(): void
++Jumping(): void
++JumpJab(): void
++JumpKick(): void
++CrouchKick1(): void
++Combo1(): void
++Combo2(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>9</x>
+      <y>909</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Global
+--
++static const  SCREEN_WIDTH: int
++static const  SCREEN_HEIGHT: int 
++static const  SCREEN_FPS: int
++static const  SCREEN_TICKS_PER_FRAME: int
++static const double dF
++static superCount: int
++static  allCharacters: ACharacter**
++static  mainMenuTexture: SDL_Texture*
++static  characterSelectTexture: SDL_Texture*
++static  charPortraits: SDL_Texture*
++static  LoadingScreenTexture: SDL_Texture*
++static charIcons: SDL_Texture*
++static  GaneshGaitondeAnimations: SDL_Texture**
++static  TrivediBabuAnimations: SDL_Texture**
++static  PhoolanDeviAnimations: SDL_Texture**
++static SDL_Texture** RobertRotorAnimations: SDL_Texture**
++static  LoadGaneshGaitonde(SDL_Renderer*): bool
++static  LoadTrivediBabu(SDL_Renderer*): bool
++static  LoadPhoolanDevi(SDL_Renderer*): bool
++static  LoadRobertRotor(SDL_Renderer*): bool
+
+
++static  CorrectedPos(Point, Point): int
++static  CorrectWidth(int, int, int): int
++static  CorrectHeight(int, int, int): int
++static  FindIndOfChar(ACharacter*): int
+
++static LoadingScreen(SDL_Renderer*): void
++static LoadImage(SDL_Texture*&amp;, char[], SDL_Renderer*): bool
+
++static InitCharIcons(SDL_Renderer*): bool
++static InitAllCharacters(SDL_Renderer*): bool
++static InitMainMenuBackGround(SDL_Renderer*): bool
++static InitCharacterSelectBackGround(SDL_Renderer*):bool
++static InitCharPortraits(SDL_Renderer*): bool
++static Mix_Music* mainMenuMusic;
++static Mix_Music* arenaMusic;
++static Mix_Music* currentMusic;
++static  LoadMusic(Mix_Music*&amp;, char[]): bool
++static  LoadSound(Mix_Chunk*&amp;, char[]): bool
++static  InitMainMenuMusic(): bool
++static  InitArenaMusic(): bool
++static PlayMusic(Mix_Music* newMusic = 0): void
++static Uint32 QueueMusic(Uint32 interval, void*)
++static  volume: int
++static  musicOnOff: bool
++static  Quit(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>207</x>
+      <y>918</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Hadouken
+--
+
+--
++Hadouken()
++~Hadouken()
++Hadouken(Point, bool)
++UpdateSprite(): void
++Render(SDL_Renderer*): void
++Creation(): void
++HandleHit(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>1035</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>linkedList
+template&lt;class T&gt;
+--
++head: node&lt;T&gt;*
++tail: node&lt;T&gt;*
+--
++linkedList()
++~linkedList()
++pushAtTail(T* data): void
++pushAtHead(T* data): void
++pushAtPosition(T* data, int pos): void
++popFromTail(): T*
++popFromHead(): T*
++deleteSomeValue(T* data): T*
++pushToTail(T* data): void
++bringToFront(T* data): void
++show(SDL_Renderer*): void
++checkCollissions(Character*) : void
++update(): void
++clean(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1188</x>
+      <y>1107</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>PhoolanDevi
+--
++cCombo: int
++crouchKick1Status: int
++PhoolanDevi()
++PhoolanDevi(Point, bool)
++~PhoolanDevi()
++UpdateSprite(): Projectile*
++RecieveInput(Uint32, int): void
++Render(SDL_Renderer*): void
++GetHitCrouch(int): void
++GetHitStandingLow(int): void
++GetHitStandingHigh(int): void
++HandleHit(int,int, int): bool
+
++Stance(): void
++Crouch(): void
++Crouching(): void
++Guarding(): void
++CrouchGuarding(): void
++WalkForward(): void
++WalkBackward(bool justIn = false): void
++Jump(): void
++CrouckKick():void
++CrouchLightJab():void
++ShortKick():void
++StrongJab(): void
++CrouchTurn(): void
++Turn(): void
++JumpFromStand(): void
++Jumping(): void
++JumpJab(): void
++JumpKick(): void
++CrouchKick1(): void
++Combo1(): void
++Combo2(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>1125</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>PortraitButton
+--
++static buttonAnimationFrames: int
++characterPortraits: SDL_Texture*
++srcRect: SDL_Rect
+--
++PortraitButton()
++~PortraitButton()
++PortraitButton(SDL_Texture*, Point, Point, Point, int, int, floatAnchor);
++Render(SDL_Renderer*, bool selected = 0, Point position = Point(-700, -700)): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>234</x>
+      <y>1116</y>
+      <w>189</w>
+      <h>297</h>
+    </coordinates>
+    <panel_attributes>Projectile
+--
+
+-velocity: Point
+-nextSprite: Sprite*
+-allSprites: Sprite**
+-damage: int
+-cap : int
+-spread: int
+-current: int
+-position: Point
+-status: bool
+-defaultOrientation: bool
+-hasDamaged: bool
+--
+-Projectile();
+-Projectile(Point,bool);
++GetPosition(): Point
++GetStatus(): bool
++virtual void UpdateSprite(): void
++virtual void HandleHit(): void
++virtual void Render(SDL_Renderer*): void
++virtual ~Projectile() 
++GetSprite(): Sprite*
++GetDamage(): int
++HasDamaged(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>657</x>
+      <y>1206</y>
+      <w>189</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>RobertRotor
+--
++cCombo: int
++crouchKick1Status: int
++RobertRotor()
++RobertRotor(Point, bool)
++~RobertRotor()
++UpdateSprite(): Projectile*
++RecieveInput(Uint32, int): void
++Render(SDL_Renderer*): void
++GetHitCrouch(int): void
++GetHitStandingLow(int): void
++GetHitStandingHigh(int): void
++HandleHit(int,int, int): bool
++Stance(): void
++Crouch(): void
++Crouching(): void
++Guarding(): void
++CrouchGuarding(): void
++WalkForward(): void
++WalkBackward(bool justIn = false): void
++Jump(): void
++CrouckKick():void
++CrouchLightJab():void
++ShortKick():void
++StrongJab(): void
++CrouchTurn(): void
++Turn(): void
++JumpFromStand(): void
++Jumping(): void
++JumpJab(): void
++JumpKick(): void
++CrouchKick1(): void
++ComboFierce(): void
++ComboChain(): void
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1242</x>
+      <y>630</y>
+      <w>207</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Settings
+--
+-buttons: TextButton**
+-title: TextButton*
+-currentButton: int
+-buttonsCount: int
+-bgMusic: Mix_Music*
+-prevScreen: Screen*
+-music: string
+
+
+-- 
++SettingsScreen(Screen*);
++~SettingsScreen();
++Render(SDL_Renderer*): void
++RecieveInput(Uint32,SDL_Keycode&amp;): void
++GetNextScreen(): Screen*
+-ToggleMusicOnOff(): void
+-ProcedureOnQuit(): void
+
+bg=magenta</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1143</x>
+      <y>585</y>
+      <w>207</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>Settings
+--
+-buttons: TextButton**
+-title: TextButton*
+-currentButton: int
+-buttonsCount: int
+-bgMusic: Mix_Music*
+-prevScreen: Screen*
+-music: string
+
+
+-- 
++SettingsScreen(Screen*);
++~SettingsScreen();
++Render(SDL_Renderer*): void
++RecieveInput(Uint32,SDL_Keycode&amp;): void
++GetNextScreen(): Screen*
+-ToggleMusicOnOff(): void
+-ProcedureOnQuit(): void
+
+bg=magenta</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>441</x>
+      <y>45</y>
+      <w>243</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>Sprite
+--:
+-spriteSheet: SDL_Texture*
+-srcRect: SDL_Rect
+-anchor: Point
+-highHitRects: SDL_Rect**
+-lowHitRects: SDL_Rect**
+-hultRects: SDL_Rect**
+-defaultOrientation: bool  //will be 0 or 1 and facing right is 0 default.
+-numberHighHitBoxes: int
+-numberLowHitBoxes: int
+-numberHultBoxes: int
+-reverseAnchor: Point
+-reverseHighHitRects: SDL_Rect**
+-reverseLowHitRects: SDL_Rect**
+-reverseHultRects: SDL_Rect**
+-destRect:SDL_Rect**
+-currentOrientation: bool
+--
+-checkLength(Point* points): int
++Sprite()
++~Sprite()
++Sprite(SDL_Texture*, Point, Point, Point,Point*, Point*, Point*,bool);
++GetHighHitRects(): SDL_Rect**
++GetLowHitRects(): SDL_Rect**
++GetHultRects(): SDL_Rect**
++GetDestRect(): SDL_Rect*
++UpdateSprite(Point, bool orientation): void
++Render(SDL_Renderer* gRenderer): void// dest rect . //render copy functiuo from SDL.
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>882</x>
+      <y>1242</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>TextButton
+--
++static buttonAnimationFrames: int
++word: Word*
++defaultColor: string
++selectedColor: string
+--
++TextButton()
++~TextButton()
++TextButton(string, Point, int, int, string, string, floatAnchor inVariant = floatAnchor(0,0))
++Render(SDL_Renderer*, bool selected = 0, Point position = Point(-700,-700)): void
++ChangeWord(string): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1134</x>
+      <y>1314</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>TrivediBabu
+--
++cCombo: int
++crouchKick1Status: int
++TrivediBabu()
++TrivediBabu(Point, bool)
++~TrivediBabu()
++UpdateSprite(): Projectile*
++RecieveInput(Uint32, int): void
++Render(SDL_Renderer*): void
++GetHitCrouch(int): void
++GetHitStandingLow(int): void
++GetHitStandingHigh(int): void
++HandleHit(int,int, int): bool
+
++Stance(): void
++Crouch(): void
++Crouching(): void
++Guarding(): void
++CrouchGuarding(): void
++WalkForward(): void
++WalkBackward(bool justIn = false): void
++Jump(): void
++CrouckKick():void
++CrouchLightJab():void
++ShortKick():void
++StrongJab(): void
++CrouchTurn(): void
++Turn(): void
++JumpFromStand(): void
++Jumping(): void
++JumpJab(): void
++JumpKick(): void
++CrouchKick1(): void
++Combo1(): void
++Combo2(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>1260</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Unit
+--
++ anchor: Point</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>36</x>
+      <y>1323</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>Word
+--
++length: int
++word: string
+--
++charTextures: ACharacter**
++Word()
++Word(string, Point anchor = Point(0,0))
++~Word()
++Render(SDL_Renderer*, Point, int, string): void
++GetProjectedWidth(int): int</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

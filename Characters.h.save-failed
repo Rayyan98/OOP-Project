@@ -1,0 +1,62 @@
+#pragma once
+#include "Point.h"
+#include <SDL.h>
+
+enum{normal, crouching, jumping};
+
+class Character
+{
+    int health;
+    int super;
+//    HealthBar* healthBar;
+//    ManaBar* superBar;
+    int window;
+    int negativeFrames;
+    int blockType;
+    bool ifAcceptingInput;
+    Point position;
+    Point velocity;
+    int state;
+    bool alive;
+//    Sprite* nextSprite
+    Sprite** walkFrames;
+    Sprite** crouchFrames;
+    Sprite** jumpFrames;
+    Sprite** lightJabFrames;
+    Sprite** heavyJabFrames;
+    Sprite** crouchLightJabFrames;
+    Sprite** crouchHeavyJabFrames;
+    Sprite** shortKickFrames;
+    Sprite** crouchShortKickFrames;
+    Sprite** crouchRoundHouseFrames;
+    Sprite** getHitFrames;
+    Sprite** stanceTurnFrames;
+    Sprite** CrouchTurnFrames;
+
+    void IncreaseSuper(int);
+    void DecreaseHealth(int);
+
+    virtual void Walk() = 0;
+    virtual void Crouch()= 0;
+    virtual void Jump() = 0;
+    virtual void LightJab() = 0;
+    virtual void HeavyJab() = 0;
+    virtual void CrouchLightJab() = 0;
+    virtual void CrouchHeavyJab() = 0;
+    virtual void ShortKick() = 0;
+    virtual void RoundHouse() = 0;
+    virtual void CrouchShortKick() = 0;
+    virtual void CrouchRoundHouse() = 0;
+    virtual void GetHit() = 0;
+//    virtual void
+    virtual void StanceTurn() = 0;
+    virtual void CrouchTurn() = 0;
+
+
+public:
+    Character();
+    Character(Point, bool);
+    ~Character();
+    virtual void ReceiveInput(SDL_Keycode&);
+    virtual void Render(SDL_Renderer*);
+};

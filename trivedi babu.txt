@@ -1,0 +1,19 @@
+bool Global::LoadTrivediBabu(SDL_Renderer* gRenderer)
+{
+    enum{stance, crouch, guard, crouchGuard, jump, crouchJab, shortKick,
+         strongJab, walkForward, walkBackward, crouchKick, crouchTurn, numElements};
+
+    TrivediBabuAnimations = new SDL_Texture*[numElements];
+    LoadImage(TrivediBabuAnimations[stance], "Sprites\\Ken\\Stance.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[crouch], "Sprites\\Ken\\Crouch.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[guard], "Sprites\\Ken\\Guard.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[crouchGuard], "Sprites\\Ken\\CrouchGuard.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[jump], "Sprites\\Ken\\Jump(notes).png", gRenderer);
+    LoadImage(TrivediBabuAnimations[crouchJab], "Sprites\\Ken\\CrouchStrong.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[shortKick], "Sprites\\Ken\\ShortKick.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[strongJab], "Sprites\\Ken\\CloseFierce.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[walkForward], "Sprites\\Ken\\WalkForward.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[walkBackward], "Sprites\\Ken\\WalkBackward.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[crouchKick], "Sprites\\Ken\\CrouchStrongKick.png", gRenderer);
+    LoadImage(TrivediBabuAnimations[crouchTurn], "Sprites\\Ken\\CrouchTurn.png", gRenderer);
+}
